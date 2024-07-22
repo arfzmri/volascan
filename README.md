@@ -6,6 +6,7 @@ This application was written in javascript and was packaged using compiler elect
 This README file provides an overview of the application and instructions on how to use it.
 
 
+
 Testing
 
 - App was tested on the following systems
@@ -15,12 +16,14 @@ Testing
    version 3.12.4
 
 
+
 Requirements
 
 - Python
 - Windows 10 or above
 - Administrator Privilege
 - Computer 
+
 
 
 Instructions
@@ -39,6 +42,7 @@ Ensure you have Python installed on your system. You can download it from the of
 Navigate to the extracted folder and run 'volascan.exe' as administrator.
 
 
+
 Functions
 
 1. Create memory dump
@@ -52,6 +56,7 @@ The output of the analysis will be saved as a text file in the same directory as
 3. Generate report
 This function enables the user to visualize data using pie charts, bar charts, or sub-tree maps.
 Visualized data will automatically be included in the report once the user generates it.
+
 
 
 Limitations/Known Issues
