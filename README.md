@@ -1,23 +1,24 @@
 # volascan
 
-Introduction
+## Introduction
 
 This application was written in javascript and was packaged using compiler electron framework. It allows user to image memory content, perform analysis and generate visual reports. 
 This README file provides an overview of the application and instructions on how to use it.
 
 
 
-Testing
+## Testing
 
 - App was tested on the following systems
-   Windows 11 64-bit operating system
-   Windows 10 64-bit operating system
+   - Windows 11 64-bit operating system
+   - Windows 10 64-bit operating system
+
 - With Python 
-   version 3.12.4
+   - version 3.12.4
 
 
 
-Requirements
+## Requirements
 
 - Python
 - Windows 10 or above
@@ -26,7 +27,7 @@ Requirements
 
 
 
-Instructions
+## Instructions
 
 1. Download the Zip File
    - Obtain the zip file from the provided source.
@@ -40,11 +41,11 @@ Instructions
    - You can download it from the official Python website: [Python Downloads](https://www.python.org/downloads/).
 
 4. Run Volascan as Administrator
-   - Navigate to the extracted folder and run 'volascan.exe' as administrator.
+   - Navigate to the extracted folder and run '_volascan.exe_' as **administrator**.
 
 
 
-Functions
+## Functions
 
 1. Create memory dump
    - This function enable user to image a memory content in raw, dmp or vmem format.
@@ -60,7 +61,7 @@ Functions
 
 
 
-Limitations/Known Issues
+## Limitations/Known Issues
 
 1. Volatility Imaging Errors
    - Due to the nature of the kernel-level driver, the imaging function requires administrator privileges to read and write all content inside the memory.
@@ -68,8 +69,9 @@ Limitations/Known Issues
 
 2. Volatility Analysis Errors
    - If you encounter errors such as:
-      -'Error executing pslist: Progress:'
-      -'Unsatisfied requirement plugins.Info.kernel.symbol_table_name:'
+      > Error executing pslist: Progress:
+      
+      > Unsatisfied requirement plugins.Info.kernel.symbol_table_name:
    - Restart your device. Some drivers require a reboot after installation to load properly.
 
 3. Volatility Reporting Errors
@@ -79,6 +81,3 @@ Limitations/Known Issues
    - Some processes may complete in less than a minute, while others can take up to 20 minutes (on Gen 4 NVMe drives).
    - Note that the application’s performance is hardware-dependent. If you're using a hard disk drive, expect significantly longer processing times.
    - The application can also be run through a Flash Drive without extracting the file on the host device, but the process will take more than 2 hours to finish a 1-minute task on NVMe.
-
-
-
