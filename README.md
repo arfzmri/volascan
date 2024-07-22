@@ -29,55 +29,56 @@ Requirements
 Instructions
 
 1. Download the Zip File
-   Obtain the zip file from the provided source.
+   - Obtain the zip file from the provided source.
 
 2. Extract the Zip File
-   Use your preferred method to extract the contents of the zip file to a desired location on your system.
-   Recommendation: Extract the zip file on the host system.
+   - Use your preferred method to extract the contents of the zip file to a desired location on your system.
+   - Recommendation: Extract the zip file on the host system.
 
 3. Download Python
-   Ensure you have Python installed on your system.
-   You can download it from the official Python website: [Python Downloads](https://www.python.org/downloads/).
+   - Ensure you have Python installed on your system.
+   - You can download it from the official Python website: [Python Downloads](https://www.python.org/downloads/).
 
-4. Run Volascan as Administrator: Navigate to the extracted folder and run 'volascan.exe' as administrator.
+4. Run Volascan as Administrator
+   - Navigate to the extracted folder and run 'volascan.exe' as administrator.
 
 
 
 Functions
 
 1. Create memory dump
-This function enable user to image a memory content in raw, dmp or vmem format.
-Note: The size of the image will be larger than the capacity of memory due to the inclusion of metadata.
+- This function enable user to image a memory content in raw, dmp or vmem format.
+- Note: The size of the image will be larger than the capacity of memory due to the inclusion of metadata.
 
 2. Analysis memory dump
-This function enables the user to analyze a memory image using 17 provided module functions.
-The output of the analysis will be saved as a text file in the same directory as the image.
+- This function enables the user to analyze a memory image using 17 provided module functions.
+- The output of the analysis will be saved as a text file in the same directory as the image.
 
 3. Generate report
-This function enables the user to visualize data using pie charts, bar charts, or sub-tree maps.
-Visualized data will automatically be included in the report once the user generates it.
+- This function enables the user to visualize data using pie charts, bar charts, or sub-tree maps.
+- Visualized data will automatically be included in the report once the user generates it.
 
 
 
 Limitations/Known Issues
 
 1. Volatility Imaging Errors
-Due to the nature of the kernel-level driver, the imaging function requires administrator privileges to read and write all content inside the memory.
-Imaging cannot be done without administrator privileges.
+- Due to the nature of the kernel-level driver, the imaging function requires administrator privileges to read and write all content inside the memory.
+- Imaging cannot be done without administrator privileges.
 
 2. Volatility Analysis Errors
-If you encounter errors such as:
-  'Error executing pslist: Progress:'
-  'Unsatisfied requirement plugins.Info.kernel.symbol_table_name:'
-Restart your device. Some drivers require a reboot after installation to load properly.
+- If you encounter errors such as:
+  --'Error executing pslist: Progress:'
+  --'Unsatisfied requirement plugins.Info.kernel.symbol_table_name:'
+-- Restart your device. Some drivers require a reboot after installation to load properly.
 
 3. Volatility Reporting Errors
-Users must visualize an analysis output to generate a report since data will not be parsed without visualization.
+- Users must visualize an analysis output to generate a report since data will not be parsed without visualization.
 
 4. Processing Time
-Some processes may complete in less than a minute, while others can take up to 20 minutes (on Gen 4 NVMe drives).
-Note that the application’s performance is hardware-dependent. If you're using a hard disk drive, expect significantly longer processing times.
-The application can also be run through a Flash Drive without extracting the file on the host device, but the process will take more than 2 hours to finish a 1-minute task on NVMe.
+- Some processes may complete in less than a minute, while others can take up to 20 minutes (on Gen 4 NVMe drives).
+- Note that the application’s performance is hardware-dependent. If you're using a hard disk drive, expect significantly longer processing times.
+- The application can also be run through a Flash Drive without extracting the file on the host device, but the process will take more than 2 hours to finish a 1-minute task on NVMe.
 
 
 
