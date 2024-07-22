@@ -47,38 +47,38 @@ Instructions
 Functions
 
 1. Create memory dump
-- This function enable user to image a memory content in raw, dmp or vmem format.
-- Note: The size of the image will be larger than the capacity of memory due to the inclusion of metadata.
+   - This function enable user to image a memory content in raw, dmp or vmem format.
+   - Note: The size of the image will be larger than the capacity of memory due to the inclusion of metadata.
 
 2. Analysis memory dump
-- This function enables the user to analyze a memory image using 17 provided module functions.
-- The output of the analysis will be saved as a text file in the same directory as the image.
+   - This function enables the user to analyze a memory image using 17 provided module functions.
+   - The output of the analysis will be saved as a text file in the same directory as the image.
 
 3. Generate report
-- This function enables the user to visualize data using pie charts, bar charts, or sub-tree maps.
-- Visualized data will automatically be included in the report once the user generates it.
+   - This function enables the user to visualize data using pie charts, bar charts, or sub-tree maps.
+   - Visualized data will automatically be included in the report once the user generates it.
 
 
 
 Limitations/Known Issues
 
 1. Volatility Imaging Errors
-- Due to the nature of the kernel-level driver, the imaging function requires administrator privileges to read and write all content inside the memory.
-- Imaging cannot be done without administrator privileges.
+   - Due to the nature of the kernel-level driver, the imaging function requires administrator privileges to read and write all content inside the memory.
+   - Imaging cannot be done without administrator privileges.
 
 2. Volatility Analysis Errors
-- If you encounter errors such as:
-  --'Error executing pslist: Progress:'
-  --'Unsatisfied requirement plugins.Info.kernel.symbol_table_name:'
--- Restart your device. Some drivers require a reboot after installation to load properly.
+   - If you encounter errors such as:
+      -'Error executing pslist: Progress:'
+      -'Unsatisfied requirement plugins.Info.kernel.symbol_table_name:'
+   - Restart your device. Some drivers require a reboot after installation to load properly.
 
 3. Volatility Reporting Errors
-- Users must visualize an analysis output to generate a report since data will not be parsed without visualization.
+   - Users must visualize an analysis output to generate a report since data will not be parsed without visualization.
 
 4. Processing Time
-- Some processes may complete in less than a minute, while others can take up to 20 minutes (on Gen 4 NVMe drives).
-- Note that the application’s performance is hardware-dependent. If you're using a hard disk drive, expect significantly longer processing times.
-- The application can also be run through a Flash Drive without extracting the file on the host device, but the process will take more than 2 hours to finish a 1-minute task on NVMe.
+   - Some processes may complete in less than a minute, while others can take up to 20 minutes (on Gen 4 NVMe drives).
+   - Note that the application’s performance is hardware-dependent. If you're using a hard disk drive, expect significantly longer processing times.
+   - The application can also be run through a Flash Drive without extracting the file on the host device, but the process will take more than 2 hours to finish a 1-minute task on NVMe.
 
 
 
