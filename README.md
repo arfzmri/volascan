@@ -28,18 +28,14 @@ Requirements
 
 Instructions
 
-1. Download the Zip File
-Obtain the zip file from the provided source.
+1. Download the Zip File: Obtain the zip file from the provided source.
 
-2. Extract the Zip File
-Use your preferred method to extract the contents of the zip file to a desired location on your system.
+2. Extract the Zip File: Use your preferred method to extract the contents of the zip file to a desired location on your system.
 Recommendation: Extract the zip file on the host system.
 
-3. Download Python
-Ensure you have Python installed on your system. You can download it from the official Python website: [Python Downloads](https://www.python.org/downloads/).
+3. Download Python: Ensure you have Python installed on your system. You can download it from the official Python website: [Python Downloads](https://www.python.org/downloads/).
 
-4. Run Volascan as Administrator
-Navigate to the extracted folder and run 'volascan.exe' as administrator.
+4. Run Volascan as Administrator: Navigate to the extracted folder and run 'volascan.exe' as administrator.
 
 
 
