@@ -23,7 +23,7 @@ This README file provides an overview of the application and instructions on how
 - Python
 - Windows 10 or above
 - Administrator Privilege
-- Computer 
+- 800MB available space
 
 
 
