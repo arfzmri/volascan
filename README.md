@@ -41,7 +41,7 @@ This README file provides an overview of the application and instructions on how
    - You can download it from the official Python website: [Python Downloads](https://www.python.org/downloads/).
 
 4. Run Volascan as Administrator
-   - Navigate to the extracted folder and run '_volascan.exe_' as **administrator**.
+   - Navigate to the extracted folder and run _volascan.exe_ as **administrator**.
 
 
 
@@ -63,21 +63,41 @@ This README file provides an overview of the application and instructions on how
 
 ## Limitations/Known Issues
 
-1. Volascan Imaging Errors
+1. Volascan Error
+   - If you encounter this error:
+
+     > This app can't run on your PC
+     
+   - Download the raw file of _volascan.exe_ file and replace the one in the file
+
+2. Volascan Imaging Errors
    - Due to the nature of the kernel-level driver, the imaging function requires administrator privileges to read and write all content inside the memory.
    - Imaging cannot be done without administrator privileges.
 
-2. Volascan Analysis Errors
+3. Volascan Analysis Errors
    - If you encounter errors such as:
       > Error executing pslist: Progress:
       
       > Unsatisfied requirement plugins.Info.kernel.symbol_table_name:
    - Restart your device. Some drivers require a reboot after installation to load properly.
+   - If the error persists:
+      - Open Command Prompt and navigate to the directory of the downloaded file.
+      - Type the following command:
+     <p></p>
+     
+     ```
+     cd resources/app/src/Volatility
+     ```
+     ```
+     python vol.py -f "yourimagePath" windows.pslist.PsList
+     ```
+      - Error will occured but this will initialize the presence of volatility in your system.
+      - Restart your device.
 
-3. Volascan Reporting Errors
+4. Volascan Reporting Errors
    - Users must visualize an analysis output to generate a report since data will not be parsed without visualization.
 
-4. Processing Time
+5. Processing Time
    - Some processes may complete in less than a minute, while others can take up to 20 minutes (on Gen 4 NVMe drives).
    - Note that the application’s performance is hardware-dependent. If you're using a hard disk drive, expect significantly longer processing times.
-   - The application can also be run through a Flash Drive without extracting the file on the host device, but the process will take more than 2 hours to finish a 1-minute task on NVMe.
+   - The application can also be run through a Flash Drive without extracting the file on the host device, but the process will take more than 1 hours to finish a 1-minute task on NVMe.
