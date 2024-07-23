@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolaScan</title>
+    <link rel="preload" href="assets/BebasNeue-Regular.ttf" as="font" type="font/ttf">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="logo-data">
+	<div class="page">
+		<div class="logo-beside">
+			<img class="logo-image" src="assets/volascan.png" alt="Logo">
+			<div class="logo-info">
+        			<span class="logo-name">VOLASCAN</span>
+        			<span class="slogan">Memory Acquisition and Analysis Tool</span>
+			</div>
+		</div>
+
+    <div class="container">
+        <div class="form-container">
+<button class="button-browse" class="button" onclick="chooseOutputFiles()">Browse</button>
+            <form id="outputForm">
+    <div class="form-analyze">
+        
+        <input type="file" id="outputPath" class="modal-input" multiple style="display: none;">
+        <input type="text" id="selectedFilePath" class="d-input" placeholder="Select output file" readonly>
+    </div>
+	</form>
+	<form id="outputForm">
+            	<div class="form-data">
+                	<input type="text" id="searchInput" class="data-input" placeholder="Search process">
+            	</div>
+        </form>
+	<button class="search-button" type="button" id="searchButton"><i class="fa fa-search"></i></button>
+	<button class="search-button" type="button" id="filterButton" onclick="openModal()"><i class="fa fa-filter"></i></button>
+
+        </div>
+	
+        <div id="outputData"></div>
+	<button class="button-view" onclick="readOutput()">View</button>
+
+	<div class="modal" id="modal">
+    		<div class="modal-content">
+			<label for="wow64True">Wow64 True</label>
+        		<input type="radio" id="wow64True" name="wow64" value="true">
+        		<label for="wow64False">Wow64 False</label>
+        		<input type="radio" id="wow64False" name="wow64" value="false">
+        		<button class="button-modal" onclick="filterDataByWow64()">Create</button>	
+    		</div>
+	</div>
+
+    </div>
+	
+    </div>
+</div>
+    <script src="analyze.js"></script>
+    <script src="report.js"></script>
+    <script src="read.js"></script>
+    <script src="search.js"></script>
+    <script src="filter.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+
+	function chooseOutputFiles() {
+    const outputPathElement = document.getElementById('outputPath');
+    const selectedFilePathElement = document.getElementById('selectedFilePath');
+
+    outputPathElement.click();
+
+    outputPathElement.addEventListener('change', function() {
+        if (outputPathElement.files.length > 0) {
+            const selectedFiles = Array.from(outputPathElement.files);
+            const selectedFileNames = selectedFiles.map(file => file.name);
+            selectedFilePathElement.value = selectedFileNames.join(', '); 
+        } else {
+            selectedFilePathElement.value = ''; 
+        }
+    });
+}
+
+</script>
+</body>
+</html>

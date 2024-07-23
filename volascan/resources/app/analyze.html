@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolaScan</title>
+    <link rel="preload" href="assets/BebasNeue-Regular.ttf" as="font" type="font/ttf">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="logo-container">
+        <div class="page">
+            <div class="logo-beside">
+                <img class="logo-image" src="assets/volascan.png" alt="Logo">
+                <div class="logo-info">
+                    <span class="logo-name">VOLASCAN</span>
+                    <span class="slogan">Memory Acquisition and Analysis Tool</span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="form-container">
+                    <form id="outputForm">
+                        <div class="form-analyze">
+                            <label for="outputPath">Select image file:</label>
+                            <input type="file" id="outputPath" class="modal-input" multiple style="display: none;">
+                            <input type="text" id="selectedFilePath" class="modal-input" placeholder="Selected file will appear here" readonly>
+                        </div>
+                    </form>
+                    <button class="button-beside" onclick="chooseOutputFiles()">Choose Files</button>
+                </div>
+                <div id="outputAnalyze"></div>
+                <button class="button-analyze" onclick="viewData()">View Output</button>
+                <button class="button-analyze" onclick="openModal()">Analyze Dump</button>
+                <div class="loader"></div>
+            </div>
+
+            <div class="modal" id="modal">
+                <div class="modal-content">
+                    <div class="close-button-containerAnalyze">
+                        <button class="close-button" type="button" id="closeButton" onclick="closeModal()">
+                            <i class="fa fa-times-thin fa-2x"></i>
+                        </button>
+                    </div>
+                    <label for="fileName">Choose module function:</label>
+                    <div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="info" name="fileType" value="info">
+                            <label for="info">Info</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="printkey" name="fileType" value="printkey">
+                            <label for="printkey">PrintKey</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="psscan" name="fileType" value="psscan">
+                            <label for="psscan">PsScan</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="pslist" name="fileType" value="pslist">
+                            <label for="pslist">PsList</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="pstree" name="fileType" value="pstree">
+                            <label for="pstree">PsTree</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="hivelist" name="fileType" value="hivelist">
+                            <label for="hivelist">HiveList</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="hivescan" name="fileType" value="hivescan">
+                            <label for="hivescan">Hivescan</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="vadinfo" name="fileType" value="vadinfo">
+                            <label for="vadinfo">VadInfo</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="vadwalk" name="fileType" value="vadwalk">
+                            <label for="vadwalk">VadWalk</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="cmdline" name="fileType" value="cmdline">
+                            <label for="cmdline">CmdLine</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="malfind" name="fileType" value="malfind">
+                            <label for="malfind">Malfind</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="dlllist" name="fileType" value="dlllist">
+                            <label for="dlllist">DllList</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="dmodule" name="fileType" value="dmodule">
+                            <label for="dmodule">DriverModule</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="privs" name="fileType" value="privs">
+                            <label for="privs">TokenPriv</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="virtmap" name="fileType" value="virtmap">
+                            <label for="virtmap">VirtMap</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="ssdt" name="fileType" value="ssdt">
+                            <label for="ssdt">SSDT</label>
+                        </div>
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="statistics" name="fileType" value="statistics">
+                            <label for="statistics">Statistics</label>
+                        </div>
+                        <button class="modal-analyze" onclick="handleFileSelection()">Analyze</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="errorModal">
+    <div class="modal-content-error1">
+        <div class="close-button-container-error1">
+            <button class="close-button" type="button" id="closeErrorModal" onclick="closeErrorModal()">
+                <i class="fa fa-times-thin fa-2x"></i>
+            </button>
+        </div>
+        <div class="error-container">
+            <i class="material-icons" style="font-size:28px;color:orange">warning</i>
+            <p class="error" id="errorMessageIcon" style="font-size:23px">Error</p>
+        </div>
+        <p id="errorMessage">It seems like some required input is missing.</p>
+        <button class="button-modal-error1" onclick="closeErrorModal()">Close</button>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+    <script src="analyze.js"></script>
+    <script src="report.js"></script>
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Function to open the error modal
+        function openErrorModal() {
+            document.getElementById('errorModal').style.display = 'flex';
+        }
+
+        // Function to close the error modal
+        function closeErrorModal() {
+            document.getElementById('errorModal').style.display = 'none';
+        }
+
+        function chooseOutputFiles() {
+            const outputPathElement = document.getElementById('outputPath');
+            const selectedFilePathElement = document.getElementById('selectedFilePath');
+
+            outputPathElement.click();
+
+            outputPathElement.addEventListener('change', function() {
+                if (outputPathElement.files.length > 0) {
+                    const selectedFiles = Array.from(outputPathElement.files);
+                    const selectedFileNames = selectedFiles.map(file => file.name);
+                    selectedFilePathElement.value = selectedFileNames.join(', '); // Display selected file names
+                } else {
+                    selectedFilePathElement.value = ''; // Clear the input field if no file is selected
+                }
+            });
+        }
+
+        function viewData() {
+            window.location.href = 'view.html';
+        }
+    </script>
+</body>
+</html>
