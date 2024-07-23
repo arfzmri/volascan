@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolaScan</title>
+    <link rel="preload" href="assets/BebasNeue-Regular.ttf" as="font" type="font/ttf">
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="logo-container">
+        <div class="page">
+            <div class="logo-beside">
+			<div class="live">
+				<div class="beside">
+                		<img class="logo-home" src="assets/volascan.png" alt="Logo">
+                		<div class="logo-infohome">
+                    			<span class="logo-name-home">VOLASCAN</span>
+                    			<span class="slogan-home">Memory Acquisition and Analysis Tool</span>
+                		</div>
+				</div>
+				<div id="outputHome" style="background-color: #2A2A35 !important; color: #fff !important; padding: 5px !important; overflow-y: auto !important; width: 450px !important; height: 336px !important; border-radius: 8px !important; font-family: 'Courier New', monospace !important; text-align: left !important; font-size: 12px !important; border: 2px solid #25252f !important; scrollbar-color: #a9a9ae #25252f !important; scrollbar-width: thin !important;">
+    <!-- Content goes here -->
+</div>	
+			</div>
+		<div class="container-home">
+                	<a href="acquisition.html" class="home"><span><strong>Create Memory Dump</strong><br>Capture snapshot of memory content in raw, dmp or vmem<br>format for analysis purposes</span></a>
+                	<a href="analyze.html" class="home"><span><strong>Analyze Memory Dump</strong><br>Run memory dump content through module function to<br>capture process, command line arguments, files and more</span></a>
+
+                	<a href="report.html" class="home"><span><strong>Generate Analysis Report</strong><br>Generate forensic report from dump content for forensic<br>purposes including visual report in pie chart, bar chart or<br>sub-tree map</span></a>
+            	</div>
+		
+            </div>    
+        </div>
+    </div>
+
+<script>
+    const { exec } = require('child_process');
+
+    function kbToMB(kb) {
+    return (kb / 1024).toFixed(2); 
+}
+
+function displayProcessList() {
+    exec('tasklist', (error, stdout) => {
+        if (error) {
+            console.error(`Error retrieving process list: ${error.message}`);
+            return;
+        }
+        const lines = stdout.trim().split('\n').slice(3); 
+        const processes = lines.map(line => {
+            const [imageName, , , memUsage] = line.trim().split(/\s{2,}/);
+            const memUsageKB = parseInt(memUsage.replace(/,/g, ''), 10); 
+            const memUsageMB = kbToMB(memUsageKB); // Convert KB to MB
+            return {
+                imageName: imageName.padEnd(30), 
+                memUsage: memUsageMB.padEnd(10) 
+            };
+        });
+        const tableRows = processes.map(process => {
+            return `<tr>
+                        <td>${process.imageName}</td>
+                        <td>${process.memUsage} MB</td>
+                    </tr>`;
+        }).join('');
+        const tableHTML = `<table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 300px;">Live Processes</th> 
+                                        <th style="width: 100px;">Memory Usage</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>${tableRows}</tbody>
+                            </table>`;
+        document.getElementById('outputHome').innerHTML = tableHTML;
+    });
+}
+
+    window.onload = () => {
+        displayProcessList();
+        setInterval(displayProcessList, 1000);
+    };
+</script>
+
+
+
+</body>
+</html>

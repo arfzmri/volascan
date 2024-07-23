@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolaScan</title>
+    <link rel="preload" href="assets/BebasNeue-Regular.ttf" as="font" type="font/ttf">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="logo-container">
+        <div class="page">
+            <div class="logo-beside">
+                <img class="logo-image" src="assets/volascan.png" alt="Logo">
+                <div class="logo-info">
+                    <span class="logo-name">VOLASCAN</span>
+                    <span class="slogan">Memory Acquisition and Analysis Tool</span>
+                </div>
+            </div>
+            <div class="container">
+                <form id="outputForm">
+                    <div class="form-group">
+                        <label for="outputPath">Enter output path:</label>
+                        <input type="text" id="outputPath" class="modal-input" placeholder="C:\Volascan\Image">
+                    </div>
+                </form>
+                <div id="outputAcquisition"></div>
+                <button class="button-acq" onclick="openModal()">Create Image</button>
+                <div class="loader-acq"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="close-button-container">
+                <button class="close-button" type="button" id="closeButton" onclick="closeModal()">
+                    <i class="fa fa-times-thin fa-2x"></i>
+                </button>
+            </div>
+            <label for="fileName">File name:</label>
+            <div>
+                <input type="text" id="fileName" class="form-input" placeholder="Enter a name for the file">
+            </div>
+            <div class="radio-label">
+                <input type="radio" id="raw" name="fileType" value="raw">
+                <label for="raw">.raw</label>
+            </div>
+            <div class="radio-label">
+                <input type="radio" id="dmp" name="fileType" value="dmp">
+                <label for="dmp">.dmp</label>
+            </div>
+            <div class="radio-label">
+                <input type="radio" id="vmem" name="fileType" value="vmem">
+                <label for="vmem">.vmem</label>
+            </div>
+            <button class="button-modal-error" onclick="executeWinPmem()">Create</button>
+        </div>
+    </div>
+
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <div class="close-button-container-error">
+                <button class="close-button" type="button" id="closeErrorModal" onclick="closeErrorModal()">
+                    <i class="fa fa-times-thin fa-2x"></i>
+                </button>
+            </div>
+	    <div class="error-container">
+		<i class="material-icons" style="font-size:28px;color:orange">warning</i>
+	    	<p class="error" id="errorMessage" style="font-size:23px">Error</p>
+	    </div>
+	    <p id="errorMessage" >It seems like some required input is missing.</p>
+	    <p id="errorMessage">Please fill in all fields.</p>
+	    <button class="button-modal-error" onclick="closeErrorModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="acquisition.js"></script>
+</body>
+</html>
