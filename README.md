@@ -68,7 +68,7 @@ This README file provides an overview of the application and instructions on how
 
      > This app can't run on your PC
      
-   - Download the raw file of _volascan.exe_ file and replace the one in the file
+   - Download the raw file of _volascan.exe_ and from github replace the one in the file
 
 2. Volascan Imaging Errors
    - Due to the nature of the kernel-level driver, the imaging function requires administrator privileges to read and write all content inside the memory.
