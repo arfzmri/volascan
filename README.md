@@ -63,18 +63,18 @@ This README file provides an overview of the application and instructions on how
 
 ## Limitations/Known Issues
 
-1. Volatility Imaging Errors
+1. Volascan Imaging Errors
    - Due to the nature of the kernel-level driver, the imaging function requires administrator privileges to read and write all content inside the memory.
    - Imaging cannot be done without administrator privileges.
 
-2. Volatility Analysis Errors
+2. Volascan Analysis Errors
    - If you encounter errors such as:
       > Error executing pslist: Progress:
       
       > Unsatisfied requirement plugins.Info.kernel.symbol_table_name:
    - Restart your device. Some drivers require a reboot after installation to load properly.
 
-3. Volatility Reporting Errors
+3. Volascan Reporting Errors
    - Users must visualize an analysis output to generate a report since data will not be parsed without visualization.
 
 4. Processing Time
