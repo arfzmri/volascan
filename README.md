@@ -1,4 +1,4 @@
-# volascan
+# Volascan
 
 ## Introduction
 
