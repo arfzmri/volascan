@@ -4,7 +4,7 @@
 
 This application was written in javascript and was packaged using compiler electron framework. It allows user to image memory content, perform analysis and generate visual reports. 
 This README file provides an overview of the application and instructions on how to use it.
-
+![Home Page of Volascan](https://github.com/arfzmri/volascan/blob/main/resources/app/assets/home-page.png)
 
 
 ## Testing
